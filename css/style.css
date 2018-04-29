@@ -44,6 +44,10 @@ a:hover {
   color: inherit;
 }
 
+input {
+  outline: none !important;
+}
+
 /* ====================
 UTILS
 ==================== */
@@ -176,7 +180,7 @@ NAVBAR
 }
 
 section.jumbotron {
-  padding: 70px 70px 0 70px;
+  padding: 70px;
   margin-bottom: 0;
   background: url(../img/triangle-bg.svg) left center no-repeat;
 }
@@ -209,129 +213,44 @@ section.jumbotron .text-container {
   }
 }
 
-section.usp-section {
-  padding: 30px 0;
-}
-
-section.usp-section > div {
-  display: table;
-  width: 100%;
-  padding: 0 70px;
-}
-
-section.usp-section h1 {
-  margin-top: 0;
-  font-size: 100px;
-}
-
-section.usp-section h1::after {
-  content: '';
-  width: 160px;
-  border: 1px solid #ccc;
-  display: block;
-  margin-top: 10px;
-}
-
-section.usp-section p.lead {
-  margin-bottom: 0;
-}
-
-section.usp-section > div > div {
-  display: table-cell;
-  position: relative;
-  width: auto;
-  vertical-align: middle;
-}
-
-section.usp-section > div > div:first-child {
-  padding-right: 40px;
-}
-
-section.usp-section > div > div:last-child {
-  padding-left: 40px;
-}
-
-section.usp-section .right-float {
-  margin-left: 200px;
-  position: absolute;
-  bottom: -3px;
-  left: -20px;
-}
-
-.usp-list {
-  padding: 0;
-}
-
-.usp-list li {
-  font-size: 18px;
-  color: #777;
-  margin-bottom: 10px;
-  list-style: none;
-  margin-left: -25px;
-  list-style-position: inside;
-  text-indent: -1em;
-  padding-left: 1em;
-}
-
-.usp-list li::before {
-  content: '';
-  display: inline-block;
-  height: 20px;
-  width: 25px;
-  background: url(../img/checked.svg) center center no-repeat;
-  background-size: 15px;
-  background-position-y: 6px;
-  background-position-x: 0;
-  margin-left: -6px;
-}
-
-@media only screen and (max-width: 1025px) {
-  section.usp-section > div > div {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  section.usp-section > div {
-    padding: 0 30px;
-  }
-
-  section.usp-section h1 {
-    font-size: 50px;
-  }
-
-  section.usp-section > div > div {
-    display: block;
-  }
-
-  section.usp-section h2 {
-    font-size: 20px;
-    margin-left: -30px;
-  }
-
-  .usp-list li::before {
-    display: none;
-  }
-
-  .usp-list li {
-    font-size: 14px;
-    margin-left: -30px;
-    text-indent: 0;
-    padding-left: 0;
-  }
-
-  section.usp-section > div > div:last-child {
-    padding-left: 30px;
-  }
-
-  section.usp-section > div > div:first-child {
-    margin-bottom: 40px;
-  }
-}
-
 section.landing {
   padding: 50px 70px;
   text-align: center;
+}
+
+section.usp img {
+  width: 30px;
+  margin-bottom: 20px;
+}
+
+section.usp p {
+  font-size: 16px;
+  color: #777;
+}
+
+section.usp [class*=col] {
+  padding: 0 50px;
+}
+
+section.usp h4 {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+@media only screen and (max-width: 767px) {
+  section.usp p {
+    font-size: 14px;
+  }
+
+  section.usp [class*=col] {
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  section.usp [class*=col]:last-child {
+    margin-bottom: 0;
+  }
 }
 
 section.landing .cards {
@@ -385,7 +304,58 @@ a.company-card {
   text-transform: uppercase;
 }
 
+section.landing.email .input {
+  display: flex;
+  width: 70%;
+  max-width: 500px;
+  align-items: center;
+  margin: 30px auto 0 auto;
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.05);
+}
+
+section.landing.email .button {
+  height: 55px;
+  border: none;
+}
+
+section.landing.email input[type="text"] {
+  width: 75%;
+  background: #FDFCFB;
+  font-family: inherit;
+  color: #737373;
+  letter-spacing: 0.5px;
+  text-indent: 5%;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+}
+
+section.landing.email input[type="submit"] {
+  width: 25%;
+  height: 55px;
+  background: #ffc122;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+
+section.landing.email input[type="submit"]:hover {
+  background: #fcb70a;
+}
+
+
 @media only screen and (max-width: 767px) {
+  section.landing.email .input {
+    width: 100%;
+  }
+
+  section.landing.email input[type="text"] {
+    font-size: 14px;
+  }
+
   section.landing {
     padding: 30px;
   }
@@ -413,60 +383,64 @@ a.company-card {
   color: #999;
 }
 
-.category-list {
-  margin-bottom: 50px;
+section.landing.job-category [class*=col] {
+  padding: 0 3px;
 }
 
-.category-card {
-  background-color: white;
-  border: 1px solid #eee;
-  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.05);
+.category-list {
+  margin-bottom: 40px;
+}
+
+.category-list .card {
   display: table;
   width: 100%;
-  height: 70px;
-  transition: 0.3s all 0s ease;
-}
-
-@media (max-width:1025px) {
-  .category-card {
-    margin-bottom: 20px;
-  }
-}
-
-.category-card:hover {
-  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.1);
-}
-
-.category-card > div {
-  display: table-cell;
-}
-
-.category-card > .img {
-  width: 70px;
-  border-left: 3px solid #ffc122;
-  box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);
-  padding: 15px;
-}
-
-.category-card > .text {
-  text-align: left;
-  color: #777;
+  min-height: 200px;
+  background-color: #eee;
   text-transform: uppercase;
-  font-size: 16px;
-  font-family: 'Lato Bold';
-  padding: 0 30px;
-  vertical-align: middle;
-  letter-spacing: 1px;
+  color: #222;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 767px) {
-  .category-card {
-    margin-bottom: 10px;
-  }
+.category-list .card .card-cover {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: linear 0.2s all;
+  -moz-transition: linear 0.2s all;
+  -o-transition: linear 0.2s all;
+  -ms-transition: linear 0.2s all;
+  transition: linear 0.2s all;
+}
 
-  .category-list {
-    margin-bottom: 30px;
-  }
+.category-list .card:hover .card-cover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.category-list .card .text {
+  display: table-cell;
+  vertical-align: middle;
+  position: inherit;
+  min-width: 240px;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  -webkit-transition: linear 0.2s all;
+  -moz-transition: linear 0.2s all;
+  -o-transition: linear 0.2s all;
+  -ms-transition: linear 0.2s all;
+  transition: linear 0.2s all;
+  font-size: 20px;
+  padding: 0 30px;
 }
 
 .job-list {
@@ -611,7 +585,6 @@ footer {
   display: block;
   padding: 100px;
   color: #ffc122;
-  margin-top: 100px;
 }
 
 @media only screen and (max-width: 767px) {
