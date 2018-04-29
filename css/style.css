@@ -527,33 +527,33 @@ section.landing.job-category [class*=col] {
   }
 }
 
-.city-section .city-list {
+.browse-section .list {
   margin-bottom: 50px;
   text-align: left;
 }
 
-.city-section h1 {
+.browse-section h1 {
   font-size: 50px;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.city-section ul {
+.browse-section ul {
   padding: 0;
 }
 
-.city-section ul li {
+.browse-section ul li {
   list-style-type: none;
   margin-bottom: 20px;
   padding: 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 
-.city-section ul li a {
+.browse-section ul li a {
   color: #777;
 }
 
-.city-section ul li::before {
+.browse-section ul li:not(:first-child)::before {
   content: '';
   display: inline-block;
   height: 10px;
@@ -569,12 +569,12 @@ section.landing.job-category [class*=col] {
     padding: 0;
   }
 
-  .city-section ul li {
+  .browse-section ul li {
     font-size: 18px;
     padding: 0;
   }
 
-  .city-section .city-list {
+  .browse-section .city-list {
     margin-bottom: 20px;
   }
 }
