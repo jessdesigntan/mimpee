@@ -596,14 +596,14 @@ footer {
 section.listing-header {
   display: table;
   width: 100%;
-  padding: 80px 50px;
+  padding: 30px;
   text-align: center;
   background: url(../img/listing-bg.png) center center no-repeat;
   background-size: cover;
 }
 
 section.listing-header h1 {
-  font-size: 45px;
+  font-size: 36px;
   line-height: 72px;
 }
 
@@ -618,37 +618,6 @@ section.listing-header > * {
   padding: 30px 15px;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.listing-search .input-div {
-  height: 60px;
-  -webkit-box-shadow: 0px 0px 40px -1px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 0px 40px -1px rgba(0,0,0,0.1);
-  box-shadow: 0px 0px 40px -1px rgba(0,0,0,0.1);
-  border-left: 8px solid #ffc122;
-  width: 100%;
-  display: table;
-}
-
-.listing-search input {
-  display: table-cell;
-  height: 60px;
-  width: 100%;
-  outline: none;
-  border: none;
-  font-size: 20px;
-  padding: 0 0 0 55px;
-  background: url(../img/search.svg) left center no-repeat;
-  background-size: 20px;
-  background-position-x: 20px;
-}
-
-.listing-search .submit {
-  display: table-cell;
-  background: url(../img/arrow-btn-primary.svg) center center no-repeat;
-  background-size: 30px;
-  width: 80px;
-  height: 60px;
 }
 
 .listing-body {
@@ -723,7 +692,7 @@ section.listing-header > * {
 }
 
 .filter-div .filter {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .filter-div .header {
@@ -756,15 +725,20 @@ section.listing-header > * {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
+  font-size: 12px;
 }
 
 .filter-div .checkbox label {
   display: block;
   padding: 8px 12px;
-  font-size: 14px;
+  font-size: 12px;
   background-color: #eee;
   color: #555;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+.filter-div .checkbox label:last-child {
+  margin-bottom: 0;
 }
 
 .filter-div .checkbox label:hover {
@@ -781,6 +755,55 @@ section.listing-header > * {
   background-size: 10px;
   background-position: right 10px center;
   background-color: #ffc122;
+}
+
+.filter-div .checkbox .content-list input[type=checkbox]:checked + label {
+  font-family: 'Lato Bold';
+  border-left: 3px solid #ffc122;
+  padding-left: 5px;
+  background-color: #ffffff;
+}
+
+.filter-div .content-list {
+  display: block;
+  max-height: 130px;
+  overflow-y: scroll;
+}
+
+.filter-div .checkbox .content-list label {
+  background: none;
+  padding: 5px 0 5px 5px;
+  border-left: 3px solid #ffffff;
+}
+
+.filter-div .content-half > div {
+  margin-bottom: 10px;
+  display: inline-block;
+  width: calc(50% - 4px);
+  margin-right: 5px;
+}
+
+.filter-div .content-half > div:nth-child(even) {
+  margin-right: 0;
+}
+
+.content-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.content-list::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+/* Handle */
+.content-list::-webkit-scrollbar-thumb {
+    background: #aaa;
+}
+
+/* Handle on hover */
+.content-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 @media only screen and (max-width: 767px) {
