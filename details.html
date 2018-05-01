@@ -52,6 +52,16 @@
     <section class="company-profile-header">
       <div class="text">
         <img class="logo" src="img/booking.png">
+        <div class="company-websites">
+          <p>websites</p>
+          <ul>
+            <li><a href="#">Amsterdam</a></li>
+            <li><a href="#">Dublin</a></li>
+            <li><a href="#">Singapore</a></li>
+            <li><a href="#">United States</a></li>
+          </ul>
+          <hr/>
+        </div>
         <div class="desc">Booking.com puts every accommodation option at the fingertips of savvy travel shoppers.</div>
         <p class="inline-icon-text">
           <span class="icon">
@@ -89,10 +99,12 @@
       </div>
     </section><!-- ./company-profile-header -->
 
-    <div class="company-profile-nav" id="stickyheader">
+    <div class="company-profile-nav hide-mobile" id="stickyheader">
       <div class="company-profile-nav-container">
         <ul>
-          <li id="newsTab"><a>News</a></li>
+          <li id="snapshotTab"><a>Snapshot</a></li>
+          <li id="workhereTab"><a>Why work here</a></li>
+          <li id="newsTab"><a>Media Articles</a></li>
           <li id="statsTab"><a>Employee Stats</a></li>
           <li id="officeTab"><a>Office</a></li>
           <li id="jobTab"><a>Jobs</a></li>
@@ -100,7 +112,25 @@
       </div>
     </div><!-- ./company-profile-nav -->
 
-    <section class="company-profile-details">
+    <section class="company-profile-details browse-section">
+      <div class="detail-section snapshot list-only" id="snapshot">
+        <div class="sub-title">Snaphot of Booking.com</div>
+        <ul class="primary">
+          <li>Booking.com encourages employees to explore every avenue they encounter, even if it means embracing an occasional failure.</li>
+          <li>The company believes that in these brief breakdowns of process, true organic learning can occur.</li>
+          <li>Teams take solace in this system for the simple fact that their managers trust them enough to make their own decisions—and rebound quickly to take another direction when one idea doesn’t work out.</li>
+        </ul>
+      </div>
+
+      <div class="detail-section news list-only" id="workhere">
+        <div class="sub-title">Why work here?</div>
+        <ul class="primary">
+          <li>Booking.com encourages employees to explore every avenue they encounter, even if it means embracing an occasional failure.</li>
+          <li>The company believes that in these brief breakdowns of process, true organic learning can occur.</li>
+          <li>Teams take solace in this system for the simple fact that their managers trust them enough to make their own decisions—and rebound quickly to take another direction when one idea doesn’t work out.</li>
+        </ul>
+      </div>
+
       <div class="detail-section news" id="news">
         <div class="sub-title">Booking.com in the news</div>
         <div class="card">
@@ -276,6 +306,8 @@
     $(function () {
         // Check the initial Poistion of the Sticky Header
         var stickyHeaderTop = $('#stickyheader').offset().top;
+        var snapshotTop = $('#snapshot').offset().top - 100;
+        var workhereTop = $('#workhere').offset().top - 100;
         var newsTop = $('#news').offset().top - 100;
         var statsTop = $('#stats').offset().top - 100;
         var officeTop = $('#office').offset().top - 100;
@@ -283,7 +315,11 @@
 
         $('.company-profile-nav-container ul li').click(function() {
           var ele;
-          if (this.id == "newsTab") {
+          if (this.id == "snapshotTab") {
+            ele = "snapshot";
+          } else if (this.id == "workhereTab") {
+            ele = "workhere";
+          } else if (this.id == "newsTab") {
             ele = "news";
           } else if (this.id == "statsTab") {
             ele = "stats";
@@ -296,7 +332,15 @@
         });
 
         $(window).scroll(function () {
-            if ($(window).scrollTop() > newsTop && $(window).scrollTop() < statsTop) {
+            if ($(window).scrollTop() > snapshotTop && $(window).scrollTop() < workhereTop) {
+              removeActiveTab();
+              $('#snapshotTab').addClass("active");
+            }
+            else if ($(window).scrollTop() > workhereTop && $(window).scrollTop() < newsTop) {
+              removeActiveTab();
+              $('#workhereTab').addClass("active");
+            }
+            else if ($(window).scrollTop() > newsTop && $(window).scrollTop() < statsTop) {
               removeActiveTab();
               $('#newsTab').addClass("active");
             }
